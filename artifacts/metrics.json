@@ -1,0 +1,262 @@
+{
+  "model_name": "Logistic Regression",
+  "base_model": "Logistic Regression",
+  "calibration": "none",
+  "calibration_oof_log_loss": {
+    "none": 0.44425248947554613,
+    "sigmoid": 0.44601307211644564,
+    "isotonic": 0.4523794453720774
+  },
+  "data_kind": "real",
+  "data_source": "Cricsheet IPL ball-by-ball data (https://cricsheet.org, ODC-By 1.0)",
+  "feature_columns": [
+    "batting_team",
+    "bowling_team",
+    "venue",
+    "target",
+    "current_score",
+    "runs_left",
+    "wickets_lost",
+    "wickets_left",
+    "balls_bowled",
+    "balls_left",
+    "current_run_rate",
+    "required_run_rate",
+    "impact_player_era"
+  ],
+  "categorical_features": [
+    "batting_team",
+    "bowling_team",
+    "venue"
+  ],
+  "numeric_features": [
+    "target",
+    "current_score",
+    "runs_left",
+    "wickets_lost",
+    "wickets_left",
+    "balls_bowled",
+    "balls_left",
+    "current_run_rate",
+    "required_run_rate",
+    "impact_player_era"
+  ],
+  "teams": {
+    "Mumbai Indians": 255,
+    "Royal Challengers Bengaluru": 241,
+    "Delhi Capitals": 239,
+    "Punjab Kings": 234,
+    "Kolkata Knight Riders": 233,
+    "Chennai Super Kings": 229,
+    "Rajasthan Royals": 214,
+    "Sunrisers Hyderabad": 173,
+    "Deccan Chargers": 75,
+    "Pune Warriors": 45,
+    "Gujarat Titans": 44,
+    "Lucknow Super Giants": 43,
+    "Gujarat Lions": 29,
+    "Rising Pune Supergiant": 27,
+    "Kochi Tuskers Kerala": 13
+  },
+  "venues": {
+    "Wankhede Stadium": 117,
+    "Eden Gardens": 86,
+    "Arun Jaitley Stadium": 85,
+    "M Chinnaswamy Stadium": 84,
+    "MA Chidambaram Stadium": 83,
+    "Rajiv Gandhi International Stadium": 74,
+    "Punjab Cricket Association IS Bindra Stadium": 59,
+    "Sawai Mansingh Stadium": 56,
+    "Dubai International Cricket Stadium": 43,
+    "Dr DY Patil Sports Academy": 37,
+    "Maharashtra Cricket Association Stadium": 35,
+    "Zayed Cricket Stadium": 35,
+    "Narendra Modi Stadium": 34,
+    "Sharjah Cricket Stadium": 28,
+    "Brabourne Stadium": 27,
+    "Subrata Roy Sahara Stadium": 16,
+    "Kingsmead": 14,
+    "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium": 13,
+    "Himachal Pradesh Cricket Association Stadium": 13,
+    "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium": 13,
+    "SuperSport Park": 11,
+    "Saurashtra Cricket Association Stadium": 9,
+    "Holkar Cricket Stadium": 9,
+    "New Wanderers Stadium": 8,
+    "St George's Park": 7,
+    "Barabati Stadium": 7,
+    "Shaheed Veer Narayan Singh International Stadium": 6,
+    "JSCA International Stadium Complex": 6,
+    "Newlands": 5,
+    "Maharaja Yadavindra Singh International Cricket Stadium": 5,
+    "Nehru Stadium": 4,
+    "Green Park": 4,
+    "Buffalo Park": 3,
+    "De Beers Diamond Oval": 3,
+    "Vidarbha Cricket Association Stadium": 3,
+    "Barsapara Cricket Stadium": 3,
+    "OUTsurance Oval": 2
+  },
+  "train_seasons": [
+    2008,
+    2024
+  ],
+  "test_seasons": [
+    2025,
+    2026
+  ],
+  "n_train_matches": 1047,
+  "n_test_matches": 138,
+  "n_train_states": 121979,
+  "n_test_states": 15914,
+  "train_chase_win_rate": 0.5206551947466367,
+  "cv_folds": 4,
+  "test_metrics": {
+    "accuracy": 0.8055799924594697,
+    "precision": 0.8836349227314754,
+    "recall": 0.7514321015388071,
+    "f1": 0.8121889037270851,
+    "roc_auc": 0.9009273196002885,
+    "log_loss": 0.4201282503633259,
+    "brier": 0.13511399967757182,
+    "ece": 0.08172041449289136,
+    "n_states": 15914
+  },
+  "comparison": [
+    {
+      "model": "Baseline (base rate)",
+      "best_params": {},
+      "cv_log_loss": 0.694931831280844,
+      "cv_brier": NaN,
+      "cv_roc_auc": NaN,
+      "test_accuracy": 0.55944451426417,
+      "test_precision": 0.55944451426417,
+      "test_recall": 1.0,
+      "test_f1": 0.7174920417455777,
+      "test_roc_auc": 0.5,
+      "test_log_loss": 0.6890870348471807,
+      "test_brier": 0.24797096103253027,
+      "test_ece": 0.038789319517533505,
+      "selected": false
+    },
+    {
+      "model": "Logistic Regression",
+      "best_params": {
+        "C": 0.001
+      },
+      "cv_log_loss": 0.44030598555122485,
+      "cv_brier": 0.14404217568146632,
+      "cv_roc_auc": 0.8742877107615536,
+      "test_accuracy": 0.8055799924594697,
+      "test_precision": 0.8836349227314754,
+      "test_recall": 0.7514321015388071,
+      "test_f1": 0.8121889037270851,
+      "test_roc_auc": 0.9009273196002885,
+      "test_log_loss": 0.4201282503633259,
+      "test_brier": 0.13511399967757182,
+      "test_ece": 0.08172041449289136,
+      "selected": true
+    },
+    {
+      "model": "Random Forest",
+      "best_params": {
+        "max_depth": 16,
+        "min_samples_leaf": 100
+      },
+      "cv_log_loss": 0.4556206221913688,
+      "cv_brier": 0.14842168438207348,
+      "cv_roc_auc": 0.8697962483440436,
+      "test_accuracy": 0.7833354279250974,
+      "test_precision": 0.9228026662532941,
+      "test_recall": 0.6686510165112883,
+      "test_f1": 0.7754331118926664,
+      "test_roc_auc": 0.9032540975988806,
+      "test_log_loss": 0.45295731116595683,
+      "test_brier": 0.14593957957244336,
+      "test_ece": 0.11524112906150576,
+      "selected": false
+    },
+    {
+      "model": "Gradient Boosting",
+      "best_params": {
+        "l2_regularization": 10.0,
+        "learning_rate": 0.03,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 200
+      },
+      "cv_log_loss": 0.46270468378907437,
+      "cv_brier": 0.15103582989985864,
+      "cv_roc_auc": 0.8637780334817791,
+      "test_accuracy": 0.776863139374136,
+      "test_precision": 0.903012048192771,
+      "test_recall": 0.6734808491519713,
+      "test_f1": 0.7715370263140964,
+      "test_roc_auc": 0.8882187396570845,
+      "test_log_loss": 0.4814969075119303,
+      "test_brier": 0.15474586758168424,
+      "test_ece": 0.12498469870561273,
+      "selected": false
+    }
+  ],
+  "best_params": {
+    "Baseline (base rate)": {},
+    "Logistic Regression": {
+      "C": 0.001
+    },
+    "Random Forest": {
+      "max_depth": 16,
+      "min_samples_leaf": 100
+    },
+    "Gradient Boosting": {
+      "l2_regularization": 10.0,
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 200
+    }
+  },
+  "metrics_by_phase": [
+    {
+      "phase": "Powerplay (0-6 ov)",
+      "n_states": 5199,
+      "accuracy": 0.7130217349490287,
+      "roc_auc": 0.840929808568824,
+      "log_loss": 0.5715192741980031,
+      "brier": 0.19173444187933356
+    },
+    {
+      "phase": "Middle (6-15 ov)",
+      "n_states": 7604,
+      "accuracy": 0.828642819568648,
+      "roc_auc": 0.9133114205710381,
+      "log_loss": 0.3855469571650287,
+      "brier": 0.12046191035436006
+    },
+    {
+      "phase": "Death (15-20 ov)",
+      "n_states": 3111,
+      "accuracy": 0.9038894246223079,
+      "roc_auc": 0.9650108696550641,
+      "log_loss": 0.2516532328652113,
+      "brier": 0.07630487341808705
+    }
+  ],
+  "permutation_importance": {
+    "required_run_rate": 0.20474151058579296,
+    "runs_left": 0.10105054649523554,
+    "wickets_lost": 0.06098274126248323,
+    "wickets_left": 0.05982834082068358,
+    "target": 0.05530192701688406,
+    "current_score": 0.02459830298421743,
+    "balls_bowled": 0.011735038232957073,
+    "balls_left": 0.011713664487569572,
+    "current_run_rate": 0.0007094078030959183,
+    "impact_player_era": 0.0,
+    "venue": -0.0018468180614350331,
+    "bowling_team": -0.0044931101168598775,
+    "batting_team": -0.012716004513607401
+  },
+  "quick_mode": false,
+  "sklearn_version": "1.7.2",
+  "python_version": "3.13.4",
+  "trained_at": "2026-10-27T18:23:40+00:00"
+}

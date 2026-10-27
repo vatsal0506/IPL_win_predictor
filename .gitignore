@@ -1,0 +1,29 @@
+# Environments & secrets
+.venv/
+venv/
+.env
+kaggle.json
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data: downloaded / regenerated locally, never committed (see README for setup)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.zip
+
+# Models: only the final deployable artifact is committed
+models/*
+!models/win_probability_model.joblib
+!models/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
